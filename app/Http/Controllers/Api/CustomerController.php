@@ -28,7 +28,7 @@ class CustomerController extends Controller
 
         $customer->capabilities()->attach(1);
 
-        return $customer->load('addresses');
+        return response()->json('Customer Added');
     }
 
     public function show(Customer $customer)
