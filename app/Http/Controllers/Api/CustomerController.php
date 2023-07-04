@@ -19,13 +19,13 @@ class CustomerController extends Controller
 
         $customer = Customer::create($customerData);
 
-
-        foreach($addresses['address'] as $address)
-        {
-            $customer->addresses()->create($address);
+        if($addresses) {
+            foreach($addresses['address'] as $address)
+            {
+                $customer->addresses()->create($address);
+            }
         }
-
-
+        
         if($request->capabilities) {
             $customer->capabilities()->attach($request->capabilities);
         } else {
