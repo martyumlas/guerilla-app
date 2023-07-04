@@ -26,7 +26,12 @@ class CustomerController extends Controller
         }
 
 
-        $customer->capabilities()->attach(1);
+        if($request->capabilities) {
+            $customer->capabilities()->attach($request->capabilities);
+        } else {
+            $customer->capabilities()->attach(1);
+        }
+        
 
         return response()->json('Customer Added');
     }

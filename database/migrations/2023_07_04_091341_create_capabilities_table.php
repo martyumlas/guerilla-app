@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Capability;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,16 @@ return new class extends Migration
             $table->text('description');
             $table->timestamps();
         });
+
+        $capabilities = [
+            ['code' => '1', 'description' => 'Buyer'],
+            ['code' => '2', 'description' => 'Seller'],
+        ];
+
+        foreach($capabilities as $capability)
+        {
+            Capability::create($capability);
+        }
     }
 
     /**

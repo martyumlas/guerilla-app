@@ -9,6 +9,8 @@ class Capability extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    
     public function customer()
     {
         return $this->belongsToMany(Customer::class);
